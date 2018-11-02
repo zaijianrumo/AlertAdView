@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.author       = { "zaijianrumo" => "2245190733@qq.com" }
   s.source       = { :git => "https://github.com/zaijianrumo/AlertAdView.git", :tag =>  s.version}
 
-  s.source_files      = "Classes/*.{h}"
+  s.source_files       = "Classes/*.{h}"
   s.resources          = "Resource/ADViewResource.bundle"
 
 
