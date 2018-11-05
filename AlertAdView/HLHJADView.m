@@ -17,10 +17,14 @@
 
 @interface HLHJADView()
 
-///AD frame
-@property (nonatomic, assign) CGRect viewframe;
 ///AD View
 @property (nonatomic, strong) UIView  *AdView;
+//播放器对象
+@property (nonatomic,strong) AVPlayer *player;
+
+@property (nonatomic,strong) AVPlayerItem *currentPlayerItem;
+///AD frame
+@property (nonatomic, assign) CGRect viewframe;
 ///AD View show url 显示广告内容的链接
 @property (nonatomic, copy) NSString  *adAdvertisementUrl;
 ///AD View openURL 点击广告跳转的链接
@@ -28,9 +32,7 @@
 /// 横屏
 @property (nonatomic, assign) BOOL    isInterfaceOrientation;
 
-@property (nonatomic,strong) AVPlayer *player;//播放器对象
 
-@property (nonatomic,strong) AVPlayerItem *currentPlayerItem;
 
 @end
 
