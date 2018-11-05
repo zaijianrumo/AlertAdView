@@ -9,10 +9,7 @@
 #import "HLHJADView.h"
 #import <AVFoundation/AVFoundation.h>
 
-// 图片路径
-#define HLHJADViewSrcName(file) [@"HLHJADView.bundle" stringByAppendingPathComponent:file]
-#define HLHJADViewFrameworkSrcName(file) [@"Frameworks/HLHJADView.framework/HLHJADView.bundle" stringByAppendingPathComponent:file]
-#define HLHJADViewImage(file) [UIImage imageNamed:HLHJADViewSrcName(file)] ? :[UIImage imageNamed:HLHJADViewFrameworkSrcName(file)]
+
 
 
 @interface HLHJADView()
@@ -31,7 +28,6 @@
 @property (nonatomic, copy) NSString  *adAdvertisementContentUrl;
 /// 横屏
 @property (nonatomic, assign) BOOL    isInterfaceOrientation;
-
 
 
 @end
@@ -78,7 +74,7 @@
     
     ///广告标签
     UILabel *adLab = [[UILabel alloc]init];
-    adLab.frame = CGRectMake(0, 0, 29, 13);
+    adLab.frame = CGRectMake(0, 0, 29, 16);
     adLab.text = @"广告";
     adLab.font = [UIFont fontWithName:@"PingFang-SC-Medium" size:10];
     adLab.textAlignment = NSTextAlignmentCenter;
@@ -89,8 +85,11 @@
     
      // 关闭按钮
     UIButton *colseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [colseBtn setImage:HLHJADViewImage(@"ic_close") forState:UIControlStateNormal]; forState:UIControlStateNormal];
-    colseBtn.frame = CGRectMake(self.AdView.frame.size.width - 20, 0, 20, 20);
+    [colseBtn setTitle:@"关闭" forState:UIControlStateNormal];
+    [colseBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    colseBtn.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:.3];
+    colseBtn.titleLabel.font = [UIFont fontWithName:@"PingFang-SC-Medium" size:12];
+    colseBtn.frame = CGRectMake(self.AdView.frame.size.width - 40, 0, 40, 20);
     [colseBtn addTarget:self action:@selector(closeBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.AdView addSubview:colseBtn];
     [colseBtn bringSubviewToFront:self];
