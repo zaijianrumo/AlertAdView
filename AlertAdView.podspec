@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "AlertAdView"
-  s.version      = "1.0.0"
+  s.version      = "1.0.2"
   s.summary      = "弹框广告支持视频图文广告"
   s.description  = <<-DESC
                    "弹框广告弹框广告支持视频图文广告弹框广告支持视频图文广告弹框广告支持视频图文广告"
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/zaijianrumo/AlertAdView.git", :tag =>  s.version}
 
   s.source_files       = "AlertAdView"
-  s.resources          = "AlertAdView/ADViewResource.bundle"
+  s.resources          = "AlertAdView/HLHJADView.bundle"
 
 
 end

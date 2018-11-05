@@ -9,6 +9,12 @@
 #import "HLHJADView.h"
 #import <AVFoundation/AVFoundation.h>
 
+// 图片路径
+#define HLHJADViewSrcName(file) [@"HLHJADView.bundle" stringByAppendingPathComponent:file]
+#define HLHJADViewFrameworkSrcName(file) [@"Frameworks/HLHJADView.framework/HLHJADView.bundle" stringByAppendingPathComponent:file]
+#define HLHJADViewImage(file) [UIImage imageNamed:HLHJADViewSrcName(file)] ? :[UIImage imageNamed:HLHJADViewFrameworkSrcName(file)]
+
+
 @interface HLHJADView()
 
 @property (nonatomic, assign) CGRect viewframe;
@@ -46,7 +52,6 @@
 }
 
 #pragma mark - 展示广告
-
 - (void)showADView {
  
      UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
@@ -81,7 +86,7 @@
     
      // 关闭按钮
     UIButton *colseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [colseBtn setImage:[UIImage imageNamed:@"ADViewResource.bundle/ic_close"] forState:UIControlStateNormal];
+    [colseBtn setImage:HLHJADViewImage(@"ic_close") forState:UIControlStateNormal]; forState:UIControlStateNormal];
     colseBtn.frame = CGRectMake(self.AdView.frame.size.width - 20, 0, 20, 20);
     [colseBtn addTarget:self action:@selector(closeBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.AdView addSubview:colseBtn];
