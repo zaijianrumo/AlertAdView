@@ -17,14 +17,15 @@
 
 @interface HLHJADView()
 
+///AD frame
 @property (nonatomic, assign) CGRect viewframe;
-
+///AD View
 @property (nonatomic, strong) UIView  *AdView;
-
+///AD View show url 显示广告内容的链接
 @property (nonatomic, copy) NSString  *adAdvertisementUrl;
-
+///AD View openURL 点击广告跳转的链接
 @property (nonatomic, copy) NSString  *adAdvertisementContentUrl;
-
+/// 横屏
 @property (nonatomic, assign) BOOL    isInterfaceOrientation;
 
 @property (nonatomic,strong) AVPlayer *player;//播放器对象
@@ -34,7 +35,7 @@
 @end
 
 @implementation HLHJADView
-
+///初始化
 - (instancetype)initWithFrame:(CGRect)frame
              advertisemenType:(PPTypeAdvertisement)type
            adAdvertisementUrl:(NSString *)adUrl
@@ -92,7 +93,6 @@
     [self.AdView addSubview:colseBtn];
     [colseBtn bringSubviewToFront:self];
     
-    
     if(self.isInterfaceOrientation) {
         CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI_2);
         self.AdView.transform = transform;
@@ -111,7 +111,7 @@
     [self hideADView];
 }
 
-- (void)tapClickAction {
+- (void)adViewTapClickAction {
     
     [self hideADView];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.adAdvertisementContentUrl]];
@@ -123,7 +123,7 @@
         _AdView = [[UIView alloc]initWithFrame:self.viewframe];
         _AdView.backgroundColor = [UIColor clearColor];
         _AdView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tapClick = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapClickAction)];
+        UITapGestureRecognizer *tapClick = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(adViewTapClickAction)];
         [_AdView addGestureRecognizer:tapClick];
     }
     return _AdView;
